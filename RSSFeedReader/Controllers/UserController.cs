@@ -22,6 +22,11 @@ namespace RSSFeedReader.Controllers
         {
             using (UserModels user = new UserModels())
             {
+                if (user.Users.Any( x => x.Username == userModel.Username))
+                {
+                    ViewBag.DuplicateMessage = "Username already exist!";
+                    return View("AddOrEdit", userModel);
+                }
                 user.Users.Add(userModel);
                 user.SaveChanges();
             }
