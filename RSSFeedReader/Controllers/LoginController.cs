@@ -30,9 +30,16 @@ namespace RSSFeedReader.Controllers
                 else
                 {
                     Session["userID"] = userDetails.UserID;
+                    Session["userName"] = userDetails.Username;
                     return RedirectToAction("Index", "RSSFeed");
                 }
             }
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            return RedirectToAction("Index", "RSSFeed");
         }
     }
 }
