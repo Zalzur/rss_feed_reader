@@ -23,7 +23,7 @@ namespace RSSFeedReader.Controllers
 
             XDocument xml = XDocument.Parse(RSSData);
             var RSSFeedData = (from x in xml.Descendants("item")
-                               select new RSSFeed
+                               select new RSSModel
                                {
                                    Title = (string)x.Element("title"),
                                    Link = (string)x.Element("link"),
