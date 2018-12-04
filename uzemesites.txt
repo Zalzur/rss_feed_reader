@@ -1,0 +1,15 @@
+-Az "App_Data" mappán belülre hozzon létre egy adatbázist "RSSDB" névvel. (Visual Studio-ban jobb klik a mappára -> Add -> SQL Server Database)
+-Hozzon létre ebben az adatbázisban egy "Users" nevû táblát és futtassa le a következõ SQL parancsot:
+CREATE TABLE [dbo].[Users] (
+    [UserID]   INT           IDENTITY (1, 1) NOT NULL,
+    [Username] VARCHAR (50)  NOT NULL,
+    [Password] VARCHAR (50)  NOT NULL,
+    [RSS_Feed] VARCHAR (MAX) NULL,
+    PRIMARY KEY CLUSTERED ([UserID] ASC),
+    CONSTRAINT [AK_Users_Username] UNIQUE NONCLUSTERED ([Username] ASC)
+);
+(Dupla klik az adatbázisra -> Jobb klik a "Tables" mappára -> Add New Table -> A fenti parancsot másoljuk a T-SQL fülbe vagy hozza létre kézzel az oszlopokat)
+
+A Login és a Regisztráció implementálva van, de különösebb szerepük még nincs. Nem raktam elég idõt a projektbe.
+Ez volt az elsõ ASP.Net-es appom, köszönöm hozzá a lehetõséget!
+
